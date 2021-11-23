@@ -58,5 +58,5 @@ def retrieval_recall(preds: Tensor, target: Tensor, k: Optional[int] = None) -> 
         return tensor(0.0, device=preds.device)
 
     relevant = target[torch.argsort(preds, dim=-1, descending=True)][:k].sum().float()
-    k_target = target[torch.argsport(target, dim=-1, descending=True)][:k].sum().float()
+    k_target = target[torch.argsort(target, dim=-1, descending=True)][:k].sum().float()
     return relevant / k_target
